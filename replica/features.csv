@@ -1,0 +1,23 @@
+feature,area,priority,original,clone,notes
+Bounded persistent notes (MEMORY.md + USER.md),memory,must,yes,yes,2200/1375 char limits; dedupe; injection scan
+Frozen snapshot at session start; writes visible next session,memory,must,yes,yes,tested across two sessions
+Merge-before-add when memory near full,memory,should,yes,yes,rejects over-limit with entry list; warns at 80%
+Full-text search of past sessions (SQLite FTS5),memory,must,yes,yes,session_search tool
+Skills as SKILL.md with progressive disclosure,learning,must,yes,yes,index in prompt; skill_view on demand
+Agent creates/patches skills after hard tasks,learning,must,yes,yes,skill_manage + end-of-task reflection pass
+Tool-use loop with iteration budget,loop,must,yes,yes,forced no-tools wrap-up when budget used
+Tool errors returned to model not raised,loop,must,yes,yes,
+Toolsets enable/disable,loop,should,yes,yes,memory/skills/files/terminal/code/delegation
+Context compaction by summarising old turns,loop,should,yes,yes,at ~24k est. tokens
+Parallel subagents with isolated context (delegate_task),delegation,must,yes,yes,3 concurrent; children get no memory/delegation tools
+Code execution tool,tools,should,yes,partial,subprocess only; no tool-calling RPC from inside the script
+Terminal tool with approval + dangerous-command block,tools,must,yes,yes,
+Provider routing with ordered fallback,providers,must,yes,yes,nvidia -> openrouter
+Credential pool with key rotation on rate limit,providers,should,yes,yes,comma-separated keys in env var
+Prompt caching,providers,could,yes,no,provider-specific; skipped
+External memory plugins (Honcho/Mem0/etc),memory,could,yes,no,out of scope
+Checkpoints and /rollback,tools,could,yes,no,not built
+Cron / scheduled jobs,scheduling,should,yes,no,not built; next step
+Messaging gateways (Telegram/Discord/Slack),gateway,should,yes,no,not built
+Voice / TTS,gateway,could,yes,no,not built
+Browser automation,tools,could,yes,no,not built

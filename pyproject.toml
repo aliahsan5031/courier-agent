@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "courier-agent"
+version = "0.3.0"
+description = "Local-first AI assistant: memory, tools, delegation, routing through NVIDIA / OpenRouter / Ollama"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.optional-dependencies]
+voice = ["faster-whisper", "sounddevice", "numpy", "pyttsx3"]
+desktop = ["pyautogui"]
+ui = ["tkinterdnd2"]
+
+[project.scripts]
+courier = "courier.cli:main"
+
+[tool.setuptools]
+packages = ["courier"]

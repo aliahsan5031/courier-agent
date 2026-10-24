@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+*.zip
+.courier/
+config.json
+audit.jsonl
+*.db
